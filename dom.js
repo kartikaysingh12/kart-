@@ -1,9 +1,9 @@
 const val=document.getElementById('naming');
 val.style.fontWeight="bold"; 
 val.style.color="green";
-const items=document.getElementsByClassName('list-group-item');
-items[0].style.fontWeight="bold";
-items[1].style.fontWeight="bold";
-items[2].style.fontWeight="bold";
-items[3].style.fontWeight="bold";
-items[3].style.backgroundColor='green';
+const lii=document.getElementsByTagName('li');
+for(var i=0;i<lii.length;i++)
+{
+    lii[i].style.fontWeight='bold';
+}
+lii[3].style.backgroundColor='green';
