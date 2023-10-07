@@ -1,9 +1,22 @@
-
-var odd=document.querySelectorAll('li:nth-child(odd)');
-for(var i=0;i<odd.length;i++)
-{
-    odd[i].style.backgroundColor='green';
-}
-var val=document.querySelectorAll('li');
-val[1].style.color='green';
-
+var listItem=document.querySelector('#items');
+listItem.parentElement.style.backgroundColor='lightgreen';
+listItem.lastElementChild.style.color='blue';
+listItem.lastChild.textContent='hello';
+listItem.children[0].style.color='magenta'; 
+console.log(listItem.firstElementChild);
+listItem.firstElementChild.textContent='firstEC';
+console.log(listItem.firstChild);
+console.log(listItem.nextSibling);
+console.log(listItem.nextElementSibling);
+console.log(listItem.previousSibling);
+console.log(listItem.previousElementSibling);
+listItem.previousElementSibling.style.fontWeight='bold';
+var newDiv=document.createElement('div');
+newDiv.className='hello';
+newDiv.id='hello1';
+newDiv.setAttribute('title','HelloDIV');
+var textNode=document.createTextNode('Hello world');
+newDiv.appendChild(textNode);
+var container=document.querySelector('header .container');
+var h1=document.querySelector('header h1');
+container.insertBefore(newDiv,h1);
