@@ -1,9 +1,9 @@
-const val=document.getElementById('naming');
-val.style.fontWeight="bold"; 
-val.style.color="green";
-const lii=document.getElementsByTagName('li');
-for(var i=0;i<lii.length;i++)
+
+var odd=document.querySelectorAll('li:nth-child(odd)');
+for(var i=0;i<odd.length;i++)
 {
-    lii[i].style.fontWeight='bold';
+    odd[i].style.backgroundColor='green';
 }
-lii[3].style.backgroundColor='green';
+var val=document.querySelectorAll('li');
+val[1].style.color='green';
+
