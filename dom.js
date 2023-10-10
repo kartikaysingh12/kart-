@@ -1,7 +1,6 @@
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
 form.addEventListener('submit', addItem);
-itemList.addEventListener('click',removeItem);
 
 // Add item
 function addItem(e){
@@ -20,10 +19,17 @@ function addItem(e){
   li.appendChild(document.createTextNode(newItem));
   li.appendChild(document.createTextNode(newIttem));
   li.appendChild(document.createTextNode(newItttem));
-  var deleteBtn=document.createElement('button');
-  deleteBtn.className='btn btn-danger btn-sm float-right delete';
-  deleteBtn.appendChild(document.createTextNode('Delete'));
+  var deleteBtn=document.createElement('input');
+  var editbtn=document.createElement('input');
+  editbtn.type='button';
+  editbtn.value='edit';
+  deleteBtn.type='button';
+  deleteBtn.value='Delete';
+  editbtn.className='btn float-right';
+  deleteBtn.className='btn float-right ';
   li.appendChild(deleteBtn);
+  li.appendChild(editbtn);
+  
 
   // Append li to list
   itemList.appendChild(li);
@@ -33,13 +39,20 @@ function addItem(e){
     number:newItttem
   };
   let my_Obj=JSON.stringify(myObj);
-  localStorage.setItem('myObj',my_Obj);
-
-}
-function removeItem(e){
-  if(e.target.classList.contains('delete')){
-      var li = e.target.parentElement;
-      itemList.removeChild(li);
-      localStorage.removeItem('myObj');
+  localStorage.setItem(newIttem,my_Obj);
+  deleteBtn.onclick =()=>{
+    localStorage.removeItem(newIttem);
+    itemList.removeChild(li);
   }
+  editbtn.onclick= ()=>{
+    localStorage.removeItem(newIttem);
+    itemList.removeChild(li);
+    document.getElementById('name').value=myObj.name;
+    document.getElementById('email').value=myObj.email;
+    document.getElementById('number').value=myObj.number;
+  }
+  li.appendChild(deleteBtn);
+  li.appendChild(editBtn);
+  itemList.appendChild(li);
+
 }
