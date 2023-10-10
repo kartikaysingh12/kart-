@@ -1,6 +1,7 @@
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
 form.addEventListener('submit', addItem);
+itemList.addEventListener('click',removeItem);
 
 // Add item
 function addItem(e){
@@ -19,6 +20,10 @@ function addItem(e){
   li.appendChild(document.createTextNode(newItem));
   li.appendChild(document.createTextNode(newIttem));
   li.appendChild(document.createTextNode(newItttem));
+  var deleteBtn=document.createElement('button');
+  deleteBtn.className='btn btn-danger btn-sm float-right delete';
+  deleteBtn.appendChild(document.createTextNode('Delete'));
+  li.appendChild(deleteBtn);
 
   // Append li to list
   itemList.appendChild(li);
@@ -30,4 +35,11 @@ function addItem(e){
   let my_Obj=JSON.stringify(myObj);
   localStorage.setItem('myObj',my_Obj);
 
+}
+function removeItem(e){
+  if(e.target.classList.contains('delete')){
+      var li = e.target.parentElement;
+      itemList.removeChild(li);
+      localStorage.removeItem('myObj');
+  }
 }
